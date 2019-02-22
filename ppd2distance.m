@@ -1,7 +1,7 @@
 % ppd2distance.m
 %
 % This function convert pixels per degree to a pair of two distances for a
-% monitor based experiment. It takes as inpu the distance from the monitor and
+% monitor based experiment. It takes as input the distance from the monitor and
 % returns the second dimension
 %
 % input:
