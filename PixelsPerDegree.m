@@ -15,8 +15,15 @@
 %   pyPerDeg     - pixels per degree on Y axis(approx.)
 
 function [pxPerDeg, pyPerDeg] = PixelsPerDegree(width, height, distance, widthPixels, heightPixels)
-    thetaWtotal = 2*atan(width/(2*distance))*180/pi;
-    thetaHtotal = 2*atan(height/(2*distance))*180/pi;
+    thetaWtotal = 2*atan2(width/2,distance)*180/pi;
+    if (thetaWtotal < 0)
+        thetaWtotal = 360 + thetaWtotal;
+    end
+    thetaHtotal = 2*atan2(height/2,distance)*180/pi;
+    if (thetaHtotal < 0)
+        thetaHtotal = 360 + thetaHtotal;
+    end
+
 
     pxPerDeg = widthPixels/thetaWtotal;
     pyPerDeg = heightPixels/thetaHtotal;
