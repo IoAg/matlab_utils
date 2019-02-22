@@ -20,23 +20,5 @@ function [intervals] = GetIntervalsIndexArff(data, arffAttributes, attribute, mo
     % find position of attribute in data
     dataIndex = GetAttPositionArff(arffAttributes, attribute);
 
-    startIndex = -1;
-    for i=1:size(data,1)
-        if (data(i,dataIndex)==moveId)
-            % first element of interval
-            if (startIndex==-1)
-                startIndex=i;
-            end
-        else
-            % interval finished on previous iteration
-            if (startIndex~=-1)
-                intervals = [intervals; startIndex i-1];
-            end
-            startIndex = -1;
-        end
-    end
-    % add last interval
-    if (startIndex~=-1)
-        intervals = [intervals; startIndex size(data,1)];
-    end
+    intervals = GetIntervalsIndex(data(:,dataIndex), moveId);
 end    
