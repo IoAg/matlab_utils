@@ -23,7 +23,7 @@ function [newData, newAttributes] = AddAttArff(data, attributes, attData, attNam
 	% check if attribute already exists
     for i=1:size(attributes,1)
         if (strcmpi(attributes{i,1}, attName))
-            error(['Attributes "' attName '" already exists in file ' arffFile]);
+            error(['Attributes "' attName '" already exists. Cannot add it.']);
         end
     end
 
